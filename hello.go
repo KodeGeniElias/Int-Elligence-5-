@@ -10,4 +10,3 @@ func main() {
 	fmt.Println("Martin");
 	fmt.Println("Elias");
 }
-git push  <master> 
