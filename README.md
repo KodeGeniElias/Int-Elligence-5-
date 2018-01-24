@@ -5,5 +5,11 @@ Innlevering til IS-105
   - Linux: ELF
   - MS Windows: PE
   - Mac OS X: Mach-O
+  
+  Vi tror disse plattformene har forskjellige objektfil-formater fordi forskjellige plattformer har forskjellige måter å lese og kjøre filer/programmer på.
 
 2. Gå gjennom https://tour.golang.org/basics/1 Hvilke forskjeller ser du i forhold til programmeringsspråket Java? (forutsetter at alle er kjent med Java, hvis ikke, så kan man også sammenligne med andre programmeringsspråk)
+- Golang bruker func for å initialisere metodene
+- Golang bruker ikke semikolon
+- Golang bruker fmt istedenfor System.out. for å printe ut. De bruker mer forkortelser i forhold til Java
+- Golang importerer hele pakken med "package main"
