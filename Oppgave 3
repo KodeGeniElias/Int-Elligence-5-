@@ -1,0 +1,36 @@
+package main
+
+import (
+	"time"
+	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+)
+
+func main() {
+
+	signaler := make(chan os.Signal, 1)
+	done := make(chan bool, 1)
+	start := time.Now()
+
+	go func() {
+		sig := <-signaler
+		fmt.Println()
+		fmt.Println(sig)
+		done <- true
+	}()
+
+	//Hvis du tar bort denne for-løkken så får man avslutningsmelding.
+	for {
+		fmt.Println("o")
+	}
+
+	signal.Notify(signaler, syscall.SIGINT)
+
+	fmt.Println("Programmet kjører...")
+	<-done
+	fmt.Println("Avsluttet") //Avslutningsmeldingene viser ikke med for-løkke.
+	elapsed := time.Since(start)
+	fmt.Println("Programmet har kjørt i", elapsed)
+}
